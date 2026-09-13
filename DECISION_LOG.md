@@ -25,3 +25,10 @@ Canonical log for `ndjunce/portfolio`. Freeze/tag good states as we go.
 **Resume PDF:** footer has a `/resume.pdf` link; drop `public/resume.pdf` in to activate.
 
 **Next:** verify local build → create repo ndjunce/portfolio → push → deploy on Vercel → confirm live URL → user refines project copy.
+
+## 2026-08-13 — v1 built, repo created + pushed, tagged — Vercel deploy is USER action
+- **Dependency note (honest):** started on Next 14.2.15; `npm audit` flagged many advisories (DoS/SSRF/cache/image-optimizer) all against older Next. Upgraded to current major **Next 16.3.5 + React 19** (clears the flagged advisories; most only mattered for features a static portfolio doesn't use anyway — Server Actions, middleware, self-hosted image optimizer). Build compiles clean on 16 (3 static pages, `.next/BUILD_ID` confirmed). `eslint-config-next` moved to devDependencies.
+- **Repo:** `ndjunce/portfolio` created PUBLIC, pushed to main. Commit `0ba77f6`. Tag `portfolio-v1-scaffold` → 0ba77f6 (pushed).
+- **Local verify:** `npm run build` succeeds; static prerender of `/` OK.
+- **DEPLOY = USER action (can't do headlessly):** Vercel needs the user's account login/token; Vercel CLI not installed and shouldn't hold the token here. User imports repo in Vercel UI (same flow as fantasy-dashboard). Next.js auto-detected, no build config needed. Live URL to be added to README + layout metadata after deploy.
+- **Next after deploy:** user refines About + project copy in his voice; add `public/resume.pdf`; then grader becomes headliner #1 when built.
